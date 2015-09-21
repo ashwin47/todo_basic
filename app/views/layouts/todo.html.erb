@@ -48,9 +48,14 @@
         <a class="navbar-brand" href="#">TodoBasic</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav pull-right">
-            <li><%= link_to "Log In", "/path1"  %></li>
-            <li><%= link_to "Sign Up", "/path2"  %></li>
+           <% if current_user %>
+            <li>Logged in as <%=current_user.name %></li>
+            <li><%= link_to "Log Out", "/log_out"  %></li>
+            <%else%>
             
+            <li><%= link_to "Log In", "/log_in"  %></li>
+            <li><%= link_to "Sign Up", "/sign_up"  %></li>
+            <% end%>
           </ul>
         </div>
       </div>
